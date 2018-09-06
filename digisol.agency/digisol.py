@@ -1,12 +1,14 @@
 from flask import Flask, render_template, url_for, flash, redirect, request
 from forms import ContactForm
 from flask_mail import Message, Mail
-from secrets import *
+from secrets import mail_login, mail_password, slack_api_token
+from slacker import Slacker
 
 app = Flask(__name__)
 app.secret_key = 'kQXNNq+bIj2v>H|~,=!Y2Sd&=QbbG0'
 app.debug = True
 
+# emailing stuff
 app.config.update(dict(
     MAIL_SERVER = 'smtp.googlemail.com',
     MAIL_PORT = 465,
@@ -18,6 +20,9 @@ app.config.update(dict(
 ))
 
 mail = Mail(app)
+
+# Slack messages
+slackClient = Slacker(slack_api_token)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -35,6 +40,9 @@ def index():
 		      %s
 		      """ % (form.name.data, form.email.data, form.message.data)
 		mail.send(msg)
+		slackClient.chat.post_message('#forms_digisol', '*[New message]* --- from <*' + form.email.data + '*>'
+									  + '    *content*:   ' + form.message.data)
+
 		return redirect(url_for('index'))
 
 	elif request.method == 'GET':
