@@ -112,3 +112,5 @@ venv3/
 .idea/
 .idea
 
+digisol.agency/secrets.py
+/digisol.agency/secrets.py

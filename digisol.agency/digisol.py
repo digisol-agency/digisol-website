@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, flash, redirect, request
 from forms import ContactForm
 from flask_mail import Message, Mail
+from secrets import *
 
 app = Flask(__name__)
 app.secret_key = 'kQXNNq+bIj2v>H|~,=!Y2Sd&=QbbG0'
@@ -11,8 +12,9 @@ app.config.update(dict(
     MAIL_PORT = 465,
     MAIL_USE_TLS = False,
     MAIL_USE_SSL = True,
-    MAIL_USERNAME = 'marzique',
-    MAIL_PASSWORD = 'Goofy282818trax18'
+	# change these values to your email account, or set them in secrets.py
+    MAIL_USERNAME = mail_login,
+    MAIL_PASSWORD = mail_password
 ))
 
 mail = Mail(app)
@@ -27,7 +29,7 @@ def index():
 	ukrainish = langz.find('uk')
 
 	if request.method == 'POST':
-		msg = Message('Topic with email: example@cock.ua', sender='marzique@gmail.com', recipients=['d@digisol.agency'])
+		msg = Message('Topic with email: example@cock.ua', sender='marzique@gmail.com', recipients=['admin@digisol.agency'])
 		msg.body = """
 		      From: %s <%s>
 		      %s
