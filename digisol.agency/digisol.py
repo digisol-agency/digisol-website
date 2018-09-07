@@ -3,6 +3,8 @@ from forms import ContactForm
 from flask_mail import Message, Mail
 from secrets import mail_login, mail_password, slack_api_token
 from slacker import Slacker
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 
 app = Flask(__name__)
 app.secret_key = 'kQXNNq+bIj2v>H|~,=!Y2Sd&=QbbG0'
@@ -24,6 +26,15 @@ mail = Mail(app)
 # Slack messages
 slackClient = Slacker(slack_api_token)
 
+# google spreadsheet
+# use creds to create a client to interact with the Google Drive API
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive']
+creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
+client = gspread.authorize(creds)
+
+# instance
+sheet = client.open("Submitted forms").sheet1
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -34,14 +45,19 @@ def index():
 	ukrainish = langz.find('uk')
 
 	if request.method == 'POST':
-		msg = Message('Topic with email: example@cock.ua', sender='marzique@gmail.com', recipients=['admin@digisol.agency'])
+		msg = Message('digisol.agency successful form submit ', sender='marzique@gmail.com',
+					  recipients=['admin@digisol.agency'])
 		msg.body = """
-		      From: %s <%s>
-		      %s
+		      From: %s <%s> %s
 		      """ % (form.name.data, form.email.data, form.message.data)
 		mail.send(msg)
-		slackClient.chat.post_message('#forms_digisol', '*[New message]* --- from <*' + form.email.data + '*>'
+
+		slackClient.chat.post_message('#forms_digisol', '*[New message]* --- from < *' +
+									  form.email.data + '* >'
 									  + '    *content*:   ' + form.message.data)
+
+		# fill in first empty row
+		sheet.append_row([form.email.data, form.name.data, form.message.data])
 
 		return redirect(url_for('index'))
 
