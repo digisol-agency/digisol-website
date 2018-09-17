@@ -32,11 +32,10 @@ slackClient = Slacker(slack_api_token)
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 
-# find out why we need it only when on enterprise
+# find out what the hell is going on here
 basedir = os.path.abspath(os.path.dirname(__file__))
 data_json = basedir+'/client_secret.json'
 creds = ServiceAccountCredentials.from_json_keyfile_name(data_json, scope)
-
 #creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
 client = gspread.authorize(creds)
 
