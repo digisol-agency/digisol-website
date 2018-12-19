@@ -1,0 +1,65 @@
+
+#navbar {
+  overflow: hidden;
+  background-color: #BDBDBD;
+  z-index: 100;
+  background: rgba(0,0,0,0.5);
+}
+
+#navbar a {
+  float: left;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  border: 0px solid black;
+}
+
+#navbar a:hover {
+  background-color: transparent;
+  color: #82E0AA;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+.container-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#fb-icon {
+  padding-left: 16px;
+  padding-right: 10px;
+}
+
+#fb-insta {
+  padding-left: 5px;
+}
+
+#fb-tel {
+  padding-right: 10%;
+}
+
+.drop-menu {
+  padding-right: 16px;
+}
+

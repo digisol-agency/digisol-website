@@ -32,11 +32,10 @@ slackClient = Slacker(slack_api_token)
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 
-# find out why we need it only when on enterprise
+# find out what the hell is going on here
 basedir = os.path.abspath(os.path.dirname(__file__))
 data_json = basedir+'/client_secret.json'
 creds = ServiceAccountCredentials.from_json_keyfile_name(data_json, scope)
-
 #creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
 client = gspread.authorize(creds)
 
@@ -69,7 +68,7 @@ def index():
 		return redirect(url_for('index'))
 
 	elif request.method == 'GET':
-		if rusish >= 0:
+		'''if rusish >= 0:
 			if ukrainish >= 0:
 				print(langz)
 				return render_template('index_ua.html', form=form)
@@ -80,8 +79,8 @@ def index():
 			print(langz)
 			return render_template('index_ua.html', form=form)
 		else:
-			print(langz)
-			return render_template('index_en.html', form=form)
+			print(langz)'''
+		return render_template('index_en.html', form=form)
 
 # google verification
 @app.route('/google0e58ce55dc995c8c.html')

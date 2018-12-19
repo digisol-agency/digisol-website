@@ -6,19 +6,118 @@
 -->
 <html lang="en">
 	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-PCBPF89');</script>
+		<!-- End Google Tag Manager -->
+
+		<!-- Sticky bar -->
+		<script>
+		window.onscroll = function() {myFunction()};
+		var navbar = document.getElementById("navbar");
+		var sticky = navbar.offsetTop;
+		function myFunction() {
+		  if (window.pageYOffset >= sticky) {
+		    navbar.classList.add("sticky")
+		  } else {
+		    navbar.classList.remove("sticky");
+		  }
+		}</script>
+		<!-- End Sticky bar -->
+
+		<!-- Right menu -->
+	    <script>
+	    $(document).ready(function(){
+	      $('.right-menu-btn').click(function(){
+	      	$(".right-menu").toggleClass("right-menu-active");
+	      	$(".wrapper").toggleClass("wrapper_active");
+	      	document.getElementById("wrapper-int").classList.add("disable-all");
+	        });
+	      $(".wrapper").mouseup(function (e){ // событие клика по веб-документу
+			var div = $(".right-menu-btn"); // тут указываем ID элемента
+				if (!div.is(e.target) // если клик был не по нашему блоку
+				    && div.has(e.target).length === 0) { // и не по его дочерним элементам
+					document.getElementById("act").classList.remove("right-menu-active");  // скрываем его
+					document.getElementById("wrapper-id").classList.remove("wrapper_active");
+					document.getElementById("wrapper-int").classList.remove("disable-all");
+				}
+			});
+	  	});
+
+	    </script>
+    	<!-- End right menu -->
+		
 		<title>DigiSol Agency</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/assets/css/sticky-menu.css" />
 		<link rel="stylesheet" href="static/assets/css/main.css" />
+		<script src="static/assets/js/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<noscript><link rel="stylesheet" href="templates/assets/css/noscript.css" /></noscript>
+		<!-- font awesome -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> 
+		<!-- font awesomw -->
 	</head>
 	<body class="is-preload">
 
+			<!--Right menu -->
+			<div class="right-menu" id="act">
+			    <a class="right-menu-btn" id="right-btn">
+			    	<span class="btn-span"></span>
+			    </a>
+			    <nav class="menu-list">
+			      <a href="#">Main</a>
+			      <a href="#">News</a>
+			      <a href="#">Contacts</a>
+			      <a href="#">Portfolio</a>
+			    </nav>
+			    <div class="menu-media">
+			    	<div class="contact-us">
+				    	<a href="#" id="cont-us">Contact us</a>
+				    	<a href="#">38095-797-50-65</a>
+			    	</div>
+			    	<div class="sub-menu-media">
+					    <a href="#"><i class="fab fa-facebook-square"></i></a>
+					    <a href="#"><i class="fab fa-instagram"></i></a>
+					    <a href="#"><i class="fab fa-twitter-square"></i></a>
+			    	</div>
+			    </div>
+			 </div>
+			<!--  -->
+
+		<div class="wrapper" id="wrapper-id">
+			<div id="wrapper-int">
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PCBPF89"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+
+		<!-- Sticky bar -->
+			<div class="main-content"> 
+				<div id="navbar">
+					<div class="container-flex">
+						<div class="social">
+						  <a id="fb-icon" href="https://google.com" target="_blanc"><i class="fab fa-facebook-square"></i></a>
+						  <a id="fb-insta" href="https://www.google.com.ua/search?ei=Obq0W6tFxNKTBcDLo5gL&q=%D0%B2%D0%BE%D1%80%D0%BA%D0%BF%D1%80%D0%B5%D1%81&oq=%D0%B2%D0%BE%D1%80%D0%BA%D0%BF%D1%80%D0%B5%D1%81&gs_l=psy-ab.3...3867.7534.0.7761.0.0.0.0.0.0.0.0..0.0....0...1.1.64.psy-ab..0.0.0....0.jteCTkeh7fQ" target="_blanc"><i class="fab fa-instagram"></i></a>
+						</div>
+						<div class="number">
+					  	<a id="fb-tel" href="javascript:void(0)">+38095-797-50-65</a>
+						</div>
+					</div>
+				</div>
+			</div> 
+		<!--  -->
+		
 		<!-- Header -->
 			<section id="header">
 				<header>
 					<h1>DigiSol</h1>
-					<p>Digital Solutins for your business</p>
+					<p>Digital Solutions for your business</p>
 				</header>
 				<footer>
 					<a href="#banner" class="button style2 scrolly-middle">Who We Are?</a>
@@ -28,11 +127,10 @@
 		<!-- Banner -->
 			<section id="banner">
 				<header>
-					<h2>This is Overflow</h2>
+					<h2>Hello, we are Digisol</h2>
 				</header>
-				<p>A brand new site template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a>.<br />
-				It’s responsive, built on HTML5/CSS3, and entirely free<br />
-				under the <a href="http://html5up.net/license">Creative Commons license</a>.</p>
+				<p>We help businesses grow by telling their story & creating amazing digital experiences.</p><br>
+				<p>Our are team of young yet experienced perfectionists, provides full-cycle of services helping your company to become a leading representative on the Web.</p>
 				<footer>
 					<a href="#first" class="button style2 scrolly">What we do?</a>
 				</footer>
@@ -46,7 +144,7 @@
 						<h2>Website<br />
 						development</h2>
 					</header>
-					<p>Tortor faucibus ullamcorper nec tempus purus sed penatibus. Lacinia pellentesque eleifend vitae est elit tristique velit tempus etiam.</p>
+					<p>We create pixel-perfect web-based internet apps, e-commerce sites, and social networks to give your customers more than they expect from you.</p>
 				</div>
 			</article>
 
@@ -57,7 +155,7 @@
 					<header>
 						<h2>SEO</h2>
 					</header>
-					<p>Rhoncus mattis egestas sed fusce sodales rutrum et etiam ullamcorper. Etiam egestas scelerisque ac duis magna lorem ipsum dolor.</p>
+					<p>It's not about increasing traffic. It's about increasing the right type of traffic. Our team creates and execute all-inclusive digital marketing and SEO campaigns. </p>
 				</div>
 			</article>
 			<!-- Feature 3 -->
@@ -67,7 +165,7 @@
 					<header>
 						<h2>SMM</h2>
 					</header>
-					<p>Tortor faucibus ullamcorper nec tempus purus sed penatibus. Lacinia pellentesque eleifend vitae est elit tristique velit tempus etiam.</p>
+					<p>Social media management involves so much more than just publishing content. Brands need to utilize these channels to tell their story and engage with their audience.</p>
 				</div>
 			</article>
 			<!-- Feature 4 -->
@@ -77,7 +175,7 @@
 					<header>
 						<h2>Digital Consutling</h2>
 					</header>
-					<p>Rhoncus mattis egestas sed fusce sodales rutrum et etiam ullamcorper. Etiam egestas scelerisque ac duis magna lorem ipsum dolor.</p>
+					<p>We create meaningful experiences that enable business growth, transform brands & improve customer experience.</p>
 				</div>
 			</article>
 
@@ -85,21 +183,21 @@
 			<article class="container box style2">
 				<header>
 					<h2>Our Projects</h2>
-					<p>Justo phasellus et aenean dignissim<br />
-					placerat cubilia purus lectus.</p>
+					<p>These are some of the projects<br />
+					we are proud to share with you.</p>
 				</header>
 				<div class="inner gallery">
 					<div class="row gtr-0">
-						<div class="col-3 col-12-mobile"><a href="static/images/fulls/01.jpg" class="image fit"><img src="static/images/thumbs/01.jpg" alt="" title="Ad infinitum" /></a></div>
-						<div class="col-3 col-12-mobile"><a href="static/images/fulls/02.jpg" class="image fit"><img src="static/images/thumbs/02.jpg" alt="" title="Dressed in Clarity" /></a></div>
-						<div class="col-3 col-12-mobile"><a href="static/images/fulls/03.jpg" class="image fit"><img src="static/images/thumbs/03.jpg" alt="" title="Raven" /></a></div>
-						<div class="col-3 col-12-mobile"><a href="static/images/fulls/04.jpg" class="image fit"><img src="static/images/thumbs/04.jpg" alt="" title="I'll have a cup of Disneyland, please" /></a></div>
+						<div class="col-3 col-12-mobile"><a href="static/images/websites/uapolicy_site.png" class="image fit hover_bw" id="uapolicy"><img src="static/images/logos/uapolicy.png" alt="" title="Ukrainian Politics Foundation" /></a></div>
+						<div class="col-3 col-12-mobile"><a href="static/images/websites/cantabria4you.png" class="image fit hover_bw"><img src="static/images/logos/cantabria.png" alt="" title="Cantabria4You" /></a></div>
+						<div class="col-3 col-12-mobile"><a href="static/images/websites/dehack-scrn-cut.png" class="image fit hover_bw"><img src="static/images/logos/deha.png" alt="" title="Dehack" /></a></div>
+						<div class="col-3 col-12-mobile"><a href="static/images/fulls/04.jpg" class="image fit hover_bw"><img src="static/images/thumbs/04.jpg" alt="" title="I'll have a cup of Disneyland, please" /></a></div>
 					</div>
 					<div class="row gtr-0">
-						<div class="col-3 col-12-mobile"><a href="static/images/fulls/05.jpg" class="image fit"><img src="static/images/thumbs/05.jpg" alt="" title="Cherish" /></a></div>
-						<div class="col-3 col-12-mobile"><a href="static/images/fulls/06.jpg" class="image fit"><img src="static/images/thumbs/06.jpg" alt="" title="Different." /></a></div>
-						<div class="col-3 col-12-mobile"><a href="static/images/fulls/07.jpg" class="image fit"><img src="static/images/thumbs/07.jpg" alt="" title="History was made here" /></a></div>
-						<div class="col-3 col-12-mobile"><a href="static/images/fulls/08.jpg" class="image fit"><img src="static/images/thumbs/08.jpg" alt="" title="People come and go and walk away" /></a></div>
+						<div class="col-3 col-12-mobile"><a href="static/images/fulls/05.jpg" class="image fit hover_bw"><img src="static/images/thumbs/05.jpg" alt="" title="Cherish" /></a></div>
+						<div class="col-3 col-12-mobile"><a href="static/images/fulls/06.jpg" class="image fit hover_bw"><img src="static/images/thumbs/06.jpg" alt="" title="Different." /></a></div>
+						<div class="col-3 col-12-mobile"><a href="static/images/fulls/07.jpg" class="image fit hover_bw"><img src="static/images/thumbs/07.jpg" alt="" title="History was made here" /></a></div>
+						<div class="col-3 col-12-mobile"><a href="static/images/fulls/08.jpg" class="image fit hover_bw"><img src="static/images/thumbs/08.jpg" alt="" title="People come and go and walk away" /></a></div>
 					</div>
 				</div>
 			</article>
@@ -107,8 +205,9 @@
 		<!-- Contact -->
 			<article class="container box style3">
 				<header>
-					<h2>Contact Us</h2>
-					<p>Diam dignissim lectus eu ornare volutpat orci.</p>
+					<h2>Need some free consultancy? </h2>
+					<p>We like helping teams relieve the boredom and bring a new blood to their projects.
+Starting with a brief interview about your product and delving into the subject we come up with decisions based on our team's previous experience.</p>
 				</header>
 				<form method="post" action="#">
 					<div class="row gtr-50">
@@ -300,5 +399,7 @@
 			<script src="static/assets/js/util.js"></script>
 			<script src="static/assets/js/main.js"></script>
 
+		</div>
+	</div>
 	</body>
 </html>
