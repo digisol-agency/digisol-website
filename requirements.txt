@@ -20,7 +20,7 @@ jsonpatch==1.10
 jsonpointer==1.9
 MarkupSafe==1.0
 oauthlib==1.0.3
-Pillow==5.2.0
+Pillow==6.2.0
 prettytable==0.7.2
 pyasn1==0.1.9
 pycparser==2.18
